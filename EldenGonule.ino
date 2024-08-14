@@ -25,7 +25,7 @@ boolean calma_durumu = true;//bekletme (pause için)
 
 SoftwareSerial mySerial_git_mp3(10, 11); // RX, TX
 
-int dil=1;
+int dil=5;
 
 
 
