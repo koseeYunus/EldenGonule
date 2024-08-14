@@ -69,7 +69,7 @@ void loop () {
   else if(dil==2){
     Seslendir(ingilizceCumleler, 1000);
   }
-  // 2 ise dil İspanyolca
+  // 3 ise dil İspanyolca
   else if(dil==3){
     Seslendir(ispanyolcaCumleler, 2000);
   }
@@ -78,66 +78,53 @@ void loop () {
   }
 }
 
-bool sag1, sag2, sag3, sag4, sag5, sag6, sag7, sag8, sag9, sag10, sag11, sag12 = 1;
-bool sol1, sol2, sol3, sol4, sol5, sol6, sol7, sol8, sol9, sol10, sol11, sol12 = 1;
-
-int tekrar=0;
 
 void dilDegisim(){
   //Dili Turkce Yapma
   if (digitalRead(2) == LOW) {    
     dil=1;
-    mp3_play (501);
+    mp3_play (999);
     lcdYaz("Dil","Turkce","Yapildi "," ");
     Serial.println("Dil Turkce Yapildi");
   }
   //Dili İngilizce Yapma
   if (digitalRead(3) == LOW) {    
     dil=2;
-    mp3_play (502);
+    mp3_play (1999);
     lcdYaz("The Language","Was Made in","English "," ");
     Serial.println("Dil Ingilizce Yapildi");
   }
   //Dili İspanyolca Yapma
   if (digitalRead(4) == LOW) {    
     dil=3;
-    mp3_play (503);
+    mp3_play (2999);
     lcdYaz("El Idioma","Se Hizo en","Español "," ");
     Serial.println("Dil İsponyalca Yapildi");
   }
   delay(1500);
 }
 
+bool sagDok[12] = [1,1,1,1,1,1,1,1,1,1,1,1];
+bool solDok[12] = [1,1,1,1,1,1,1,1,1,1,1,1];
+
+int tekrar, say = 0;
+
 void dokunmatikSensorOku(){
   sag1, sag2, sag3, sag4, sag5, sag6, sag7, sag8, sag9, sag10, sag11, sag12 = 1;
   sol1, sol2, sol3, sol4, sol5, sol6, sol7, sol8, sol9, sol10, sol11, sol12 = 1;
 
-  for(tekrar=0; tekrar<5000 ; tekrar++){
-    sag1 = digitalRead(22);
-    sag2 = digitalRead(23);
-    sag3 = digitalRead(24);
-    sag4 = digitalRead(25);
-    sag5 = digitalRead(26);
-    sag6 = digitalRead(27);
-    sag7 = digitalRead(28);
-    sag8 = digitalRead(29);
-    sag9 = digitalRead(30);
-    sag10 = digitalRead(31);
-    sag11 = digitalRead(32);
-    sag12 = digitalRead(33);
+  for(say=0; say<12; say++){
+    sagDok[say] = 1;
+    solDok[say] = 1;
+  }
 
-    sol1 = digitalRead(34);
-    sol2 = digitalRead(35);
-    sol3 = digitalRead(36);
-    sol4 = digitalRead(37);
-    sol5 = digitalRead(38);
-    sol6 = digitalRead(39);
-    sol7 = digitalRead(40);
-    sol8 = digitalRead(41);
-    sol9 = digitalRead(42);
-    sol10 = digitalRead(43);
-    sol11 = digitalRead(44);
-    sol12 = digitalRead(45);
+  for(tekrar=0; tekrar<5000 ; tekrar++){
+
+    for(say=0; say<12; say++){
+      sagDok[say] = digitalRead(22+say);
+      solDok[say] = digitalRead(34+say);
+    }
+ 
   }
 }
 
