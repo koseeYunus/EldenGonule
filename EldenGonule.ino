@@ -1,17 +1,3 @@
-/*
-   mp3_play ();     //Parça Çalmayı başlatır
-   mp3_play (5);    //MP3 Klasörü içindeki istediğiniz parçayı çalmak için >> "mp3/0005.mp3"
-   raki parça
-   mp3_prev ();     //Önceki parça
-   mp3_set_vol
-   
-    arası ses seviyesi ayarlamak için
-   mp3_set_EQ ();   //0~5 ekolayzer seçenekleri
-   mp3_pause ();Parçayı olduğu yerde bekletme
-   mp3_stop ();Çalmayı durdurma
-
-
-*/
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -38,8 +24,6 @@ void setup () {
   delay(1000);
   mp3_set_volume (ses);          // value 0~30
   delay(500);
-  delay(1500);
-  Serial.println("deneme");
 
   for(int i=22 ; i<46 ; i++){
     pinMode(i, INPUT_PULLUP);
