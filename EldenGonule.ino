@@ -28,6 +28,7 @@ SoftwareSerial mySerial_git_mp3(10, 11); // RX, TX
 int dil=1;
 
 
+
 void setup () {
   lcd.begin();
   lcd.backlight();
@@ -37,6 +38,8 @@ void setup () {
   delay(1000);
   mp3_set_volume (ses);          // value 0~30
   delay(500);
+  delay(1500);
+  Serial.println("deneme");
 
   for(int i=22 ; i<46 ; i++){
     pinMode(i, INPUT_PULLUP);
