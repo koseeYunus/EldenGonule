@@ -1,4 +1,4 @@
-# Multilingual Touch-Activated Audio Device
+# Elden Gonule Project
 
 This Arduino project implements a multilingual touch-activated audio device with LCD display support. The device allows users to play audio messages in different languages (Turkish, English, and Spanish) by touching various combinations of sensors.
 
@@ -17,7 +17,6 @@ This Arduino project implements a multilingual touch-activated audio device with
 - DFPlayer Mini MP3 module
 - 20x4 I2C LCD display
 - 24 touch sensors
-- 3 buttons for language selection
 - Speaker for audio output
 
 ## Libraries Used
