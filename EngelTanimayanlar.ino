@@ -1,14 +1,15 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 20, 4);
-
 #include <SoftwareSerial.h>
 #include <DFPlayer_Mini_Mp3.h>
-byte ses = 30; //başlangıçtaki ses ayari
-boolean calma_durumu = true;//bekletme (pause için)
+
+LiquidCrystal_I2C lcd(0x27, 20, 4);
 
 SoftwareSerial mySerial_git_mp3(10, 11); // RX, TX
+
+byte ses = 30;                  //Baslangictaki ses ayari
+boolean calma_durumu = true;    //bekletme (pause icin)
 
 int dil=1;
 
@@ -48,7 +49,6 @@ void loop () {
     if(dil==1){
         TurkceKonus();   
     }
-
     // 2 ise dil Ingilizce
     else if(dil==2){
         IngilizceKonus();   
@@ -60,6 +60,7 @@ void loop () {
     else{
         Serial.println("Dil degiskeni tanimlanamadi !!! ");
     }
+
 
 }
 
