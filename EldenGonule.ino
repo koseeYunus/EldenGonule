@@ -10,7 +10,7 @@ byte ses = 30;                  // Basalangicta ses yuksekligi
 
 SoftwareSerial mySerial_git_mp3(10, 11); // RX, TX
 
-int dil=1;
+int dil=5;
 
 string turkceCumleler[1000][4]={
   {"Merhaba" , " " , " " , " "},    // 1
